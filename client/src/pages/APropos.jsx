@@ -55,7 +55,7 @@ export default function APropos() {
 
                         <h3 className="font-serif text-[20px] text-gold mb-3">Un Partenaire de Confiance</h3>
                         <p className="font-body text-[14px] font-[400] text-white/90 leading-[1.8] mb-8">
-                            Implantée à Casablanca, Nova Design a bâti une relation de confiance solide avec sa clientèle. De la commande à la livraison, nous vous accompagnons à chaque étape avec sérieux et expertise.
+                            Nova Design a bâti une relation de confiance solide avec sa clientèle. De la commande à la livraison, nous vous accompagnons à chaque étape avec sérieux et expertise.
                         </p>
 
                         <h3 className="font-serif text-[20px] text-gold mb-3">L'Expertise à votre Écoute</h3>
@@ -116,7 +116,7 @@ export default function APropos() {
                 <div className="max-w-3xl mx-auto border border-gold/30 p-10 xl:p-16 text-center" data-reveal>
                     <h2 className="font-serif text-[28px] text-white mb-3">Prêt à sublimer votre espace ?</h2>
                     <p className="font-body text-[14px] font-[400] text-white/90 leading-[1.7] mb-8">
-                        Contactez-nous dès aujourd'hui pour un devis personnalisé ou visitez notre showroom à Casablanca.
+                        Contactez-nous dès aujourd'hui pour un devis personnalisé ou visitez notre showroom.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link to="/catalogue" className="border border-gold text-gold font-body text-[11px] font-medium tracking-[0.2em] uppercase h-12 px-8 flex items-center justify-center hover:bg-gold hover:text-dark transition-colors">

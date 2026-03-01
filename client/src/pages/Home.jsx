@@ -57,17 +57,14 @@ export default function Home() {
                             loading="eager"
                             fetchPriority="high"
                             decoding="async"
-                            alt="Intérieur luxueux Nova Design Casablanca"
+                            alt="Intérieur luxueux Nova Design"
                             style={{
                                 width: '100%', height: '100%',
                                 objectFit: 'cover', objectPosition: 'center 20%',
                                 transform: 'translate3d(0,0,0)'
                             }}
                         />
-                        <div style={{
-                            position: 'absolute', inset: 0, zIndex: 1,
-                            background: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(240,235,225,0.6) 70%, rgba(240,235,225,1) 100%)'
-                        }}></div>
+                        <div className="hero-overlay-gradient" />
                         <div style={{
                             position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
                             background: 'radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.15) 100%)'
@@ -77,7 +74,7 @@ export default function Home() {
 
                 <div className="w-full h-[45vh] xl:w-[40%] xl:h-full bg-bg-primary px-6 py-8 pb-12 xl:py-0 flex flex-col justify-center relative" style={{ zIndex: 2 }}>
                     <span className="font-body text-[10px] text-gold tracking-[0.2em] font-[500] uppercase mb-3">
-                        ARTISAN DU MARBRE · CASABLANCA
+                        ARTISAN DU MARBRE · MAROC
                     </span>
                     <div className="w-8 h-[1px] bg-gold mb-5"></div>
 
@@ -141,7 +138,7 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-8 xl:p-12 flex flex-col items-start z-10">
-                        <span className="font-body text-[10px] text-gold tracking-[0.2em] font-[500] uppercase mb-3">ARTISAN DU MARBRE · CASABLANCA</span>
+                        <span className="font-body text-[10px] text-gold tracking-[0.2em] font-[500] uppercase mb-3">ARTISAN DU MARBRE · MAROC</span>
                         <h2 className="font-display text-[36px] xl:text-[44px] font-[600] text-white leading-none mb-2">Marbre & Pierre</h2>
                         <p className="font-body text-[14px] font-[400] text-white/90 mb-6">Tables, consoles, vasques & sur mesure</p>
                         <span className="bg-white/10 backdrop-blur-sm border border-white/30 text-white font-body text-[11px] font-medium tracking-[0.2em] uppercase h-11 px-6 flex items-center justify-center">

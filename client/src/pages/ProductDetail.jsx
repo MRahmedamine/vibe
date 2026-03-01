@@ -75,7 +75,7 @@ export default function ProductDetail() {
 
                 {/* Gallery */}
                 <div className="w-full xl:w-1/2 flex flex-col">
-                    <div className="w-full aspect-square bg-[#E8E3D8]" data-reveal>
+                    <div className="w-full aspect-square bg-bg-secondary" data-reveal>
                         {images[activeImage] ? (
                             <img src={images[activeImage]} alt={product.name} className="w-full h-full object-cover animate-fade-in" loading="lazy" decoding="async" width={1080} height={1080} />
                         ) : (
@@ -88,7 +88,7 @@ export default function ProductDetail() {
                                 <button
                                     key={idx}
                                     onClick={() => setActiveImage(idx)}
-                                    className={`flex-shrink-0 w-[56px] h-[56px] bg-[#E8E3D8] ${activeImage === idx ? 'border-2 border-gold' : 'border border-transparent'}`}
+                                    className={`flex-shrink-0 w-[56px] h-[56px] bg-bg-secondary ${activeImage === idx ? 'border-2 border-gold' : 'border border-transparent'}`}
                                 >
                                     {img && <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" width={100} height={100} />}
                                 </button>

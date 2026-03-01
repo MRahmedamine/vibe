@@ -1,7 +1,6 @@
 export default function Marquee() {
     const items = [
         'FAÇONNÉ À LA MAIN',
-        'CASABLANCA',
         'PIÈCES UNIQUES',
         'MARBRE',
         'TRAVERTIN',
@@ -11,8 +10,8 @@ export default function Marquee() {
         'LIVRAISON MAROC',
     ];
 
-    // Duplicate enough times to fill any screen width seamlessly
-    const repeated = [...items, ...items, ...items, ...items];
+    // Exactly 2 copies for seamless infinite loop: when first half scrolls out, second half is identical
+    const repeated = [...items, ...items];
 
     return (
         <div
@@ -41,12 +40,12 @@ export default function Marquee() {
             }} />
 
             <div
+                className="marquee-track"
                 style={{
                     display: 'flex',
                     alignItems: 'center',
                     height: '100%',
                     width: 'max-content',
-                    animation: 'marqueeScroll 35s linear infinite',
                     willChange: 'transform',
                 }}
             >
@@ -75,9 +74,12 @@ export default function Marquee() {
             </div>
 
             <style>{`
+        .marquee-track {
+          animation: marqueeScroll 45s linear infinite;
+        }
         @keyframes marqueeScroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0%   { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
         }
       `}</style>
         </div>

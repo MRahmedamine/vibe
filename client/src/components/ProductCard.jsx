@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
         >
             {/* Image container — MUST have explicit aspect ratio */}
             <div
-                className="overflow-hidden bg-[#E8E3D8] w-full"
+                className="overflow-hidden bg-bg-secondary w-full"
                 style={{ aspectRatio: '3 / 4' }}
             >
                 <img

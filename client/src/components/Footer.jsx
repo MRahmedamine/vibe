@@ -41,7 +41,7 @@ export default function Footer() {
                 <div className="flex flex-col mb-10 xl:mb-0 w-full xl:w-1/4">
                     <h4 className="font-display text-[16px] font-[500] text-gold mb-6">Contact</h4>
                     <span className="font-body text-[13px] font-[400] text-cream/90 flex items-center mb-2">
-                        <MapPin size={14} className="text-gold mr-2 shrink-0" /> Casablanca, Maroc
+                        <MapPin size={14} className="text-gold mr-2 shrink-0" /> Maroc
                     </span>
                     <span className="font-body text-[13px] font-[400] text-cream/90 flex items-center mb-2">
                         <Phone size={14} className="text-gold mr-2 shrink-0" /> 0649668465

@@ -27,7 +27,7 @@ export default function CategoryCard({ category }) {
             className="relative block w-full aspect-square overflow-hidden group border border-transparent hover:border-gold/50 transition-colors duration-300"
             data-reveal
         >
-            <div className="absolute inset-0 bg-[#E8E3D8]">
+            <div className="absolute inset-0 bg-bg-secondary">
                 {imageUrl && (
                     <img
                         src={imageUrl}

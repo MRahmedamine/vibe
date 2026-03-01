@@ -37,8 +37,8 @@ export default function AdminLayout() {
     return (
         <div className="flex min-h-screen">
 
-            {/* Sidebar */}
-            <aside className="w-60 bg-dark flex-shrink-0 flex flex-col">
+            {/* Sidebar — fixed dark theme, no theme variables */}
+            <aside className="w-60 flex-shrink-0 flex flex-col" style={{ backgroundColor: '#1a1a0e' }}>
 
                 {/* Logo */}
                 <div className="p-6 border-b border-white/10">
@@ -92,8 +92,8 @@ export default function AdminLayout() {
                 </div>
             </aside>
 
-            {/* Main */}
-            <main className="flex-1 bg-bg-primary overflow-auto">
+            {/* Main — fixed light cream, no theme variables */}
+            <main className="flex-1 overflow-auto" style={{ backgroundColor: '#f5f0e8' }}>
                 <Outlet />
             </main>
         </div>

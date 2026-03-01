@@ -68,7 +68,7 @@ export default function SurMesure() {
                         <div className="flex flex-col">
                             <span className="font-display text-[64px] text-gold/20 leading-none mb-2">03</span>
                             <h3 className="font-display text-[20px] text-dark mb-2">Fabrication & Livraison</h3>
-                            <p className="font-body text-[13px] text-text-sec">Validation des plans, façonnage dans notre atelier à Casablanca, et livraison sécurisée chez vous.</p>
+                            <p className="font-body text-[13px] text-text-sec">Validation des plans, façonnage dans notre atelier, et livraison sécurisée chez vous.</p>
                         </div>
                     </div>
                 </div>

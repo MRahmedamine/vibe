@@ -37,14 +37,14 @@ export default function Contact() {
                 <div className="w-full xl:w-5/12" data-reveal>
                     <div className="flex flex-col gap-4">
 
-                        <a href="https://wa.me/212649668465" target="_blank" rel="noreferrer" className="group bg-bg-secondary p-6 border-l-[3px] border-gold hover:bg-[#F2EDE1] transition-colors">
+                        <a href="https://wa.me/212649668465" target="_blank" rel="noreferrer" className="group bg-bg-secondary p-6 border-l-[3px] border-gold hover:bg-bg-primary transition-colors">
                             <Phone size={24} className="text-gold mb-3" strokeWidth={1.5} />
                             <h3 className="font-display text-[18px] text-dark mb-1">WhatsApp / Téléphone</h3>
                             <p className="font-body text-[12px] text-text-sec mb-4">0649668465</p>
                             <span className="font-body text-[11px] text-gold tracking-wider uppercase group-hover:underline underline-offset-4">ENVOYER &rarr;</span>
                         </a>
 
-                        <a href="https://instagram.com/novadesign.maa" target="_blank" rel="noreferrer" className="group bg-bg-secondary p-6 border-l-[3px] border-gold hover:bg-[#F2EDE1] transition-colors">
+                        <a href="https://instagram.com/novadesign.maa" target="_blank" rel="noreferrer" className="group bg-bg-secondary p-6 border-l-[3px] border-gold hover:bg-bg-primary transition-colors">
                             <Instagram size={24} className="text-gold mb-3" strokeWidth={1.5} />
                             <h3 className="font-display text-[18px] text-dark mb-1">Instagram</h3>
                             <p className="font-body text-[12px] text-text-sec mb-4">@novadesign.maa</p>
@@ -54,7 +54,7 @@ export default function Contact() {
                         <div className="bg-bg-secondary p-6 border-l-[3px] border-gold">
                             <MapPin size={24} className="text-gold mb-3" strokeWidth={1.5} />
                             <h3 className="font-display text-[18px] text-dark mb-1">Atelier</h3>
-                            <p className="font-body text-[12px] text-text-sec mb-4">Casablanca, Maroc<br />(Sur rendez-vous uniquement)</p>
+                            <p className="font-body text-[12px] text-text-sec mb-4">Maroc<br />(Sur rendez-vous uniquement)</p>
                         </div>
 
                     </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                         height="400"
                         style={{ border: 'none', borderRadius: '8px' }}
                         loading="lazy"
-                        title="Casablanca Location"
+                        title="Nova Design"
                     ></iframe>
                 </div>
             </div>

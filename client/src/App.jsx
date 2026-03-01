@@ -10,6 +10,7 @@ import SurMesure from './pages/SurMesure';
 import Panier from './pages/Panier';
 import Contact from './pages/Contact';
 import { CartProvider } from './context/CartContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { AdminProvider } from './context/AdminContext';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminLayout from './pages/admin/AdminLayout';
@@ -36,6 +37,7 @@ export default function App() {
     <AdminProvider>
       <CartProvider>
         <BrowserRouter>
+          <ThemeProvider>
           <Routes>
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
@@ -56,6 +58,7 @@ export default function App() {
               <Route path="devis" element={<AdminDevis />} />
             </Route>
           </Routes>
+          </ThemeProvider>
         </BrowserRouter>
       </CartProvider>
     </AdminProvider>

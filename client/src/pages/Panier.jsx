@@ -55,7 +55,7 @@ export default function Panier() {
                         <div className="flex flex-col">
                             {cartItems.map(item => (
                                 <div key={item.product} className="flex gap-4 py-5 border-b border-dark/10">
-                                    <div className="w-[80px] h-[80px] bg-[#E8E3D8] shrink-0">
+                                    <div className="w-[80px] h-[80px] bg-bg-secondary shrink-0">
                                         {item.image && <img src={getImageUrl(item.image) || item.image} alt={item.name} className="w-full h-full object-cover" loading="lazy" decoding="async" width={80} height={80} />}
                                     </div>
 

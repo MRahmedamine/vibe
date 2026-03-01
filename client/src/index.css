@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #F0EBE1;
-  --color-bg-secondary: #FAF7F2;
-  --color-dark: #1A1715;
-  --color-gold: #C8A96E;
-  --color-gold-light: #E8D5A3;
-  --color-text-sec: #6B6359;
+  /* Theme-aware: values from :root / .dark */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-dark: var(--text-primary);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-text-sec: var(--text-secondary);
+  --color-cream: var(--cream);
+  /* Fixed (e.g. admin or accents) */
   --color-obsidian: #0A0A0A;
   --color-surface: #1A1A1A;
   --color-champagne: #C8A96E;
   --color-bronze: #8B7355;
-  --color-cream: #F5F0E8;
 
   --font-display: 'Bodoni Moda', serif;
   --font-heading: 'Prata', serif;
@@ -60,27 +63,41 @@
 }
 
 :root {
-  /* Light palette (NOVA) */
-  --bg-primary: #F0EBE1;
-  --bg-secondary: #FAF7F2;
-  --dark: #1A1715;
-  --gold: #C8A96E;
-  --gold-light: #E8D5A3;
-  --text-primary: #1A1715;
-  --text-secondary: #6B6359;
+  /* Light mode */
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #ede8df;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a0e;
+  --text-secondary: #6b6b55;
+  --gold: #c9a96e;
+  --gold-light: #e8d5a3;
+  --cream: #f5f0e8;
+  --border: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(245, 240, 232, 0.95);
+}
 
-  /* Dark palette (Pierre d'Exception overlay) */
-  --obsidian: #0A0A0A;
-  --surface: #1A1A1A;
-  --champagne: #C8A96E;
-  --bronze: #8B7355;
-  --cream: #F5F0E8;
+.dark {
+  --bg-primary: #2a2a1f;
+  --bg-secondary: #1e1e15;
+  --bg-card: #333325;
+  --text-primary: #f5f0e8;
+  --text-secondary: #c9b99a;
+  --gold: #c9a96e;
+  --gold-light: #c9b99a;
+  --cream: #f5f0e8;
+  --border: rgba(201, 169, 110, 0.2);
+  --navbar-bg: rgba(26, 26, 16, 0.95);
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Tenor Sans', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
@@ -121,6 +138,14 @@ img:not([src]) {
 
 /* Prevent layout shift while hero image loads */
 .hero-image-container {
-  background-color: #e8e3d8;
-  background-image: linear-gradient(135deg, #e8e3d8 0%, #d4cfc6 100%);
+  background-color: var(--bg-secondary);
+  background-image: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+/* Hero text overlay: fades to current theme background */
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, color-mix(in srgb, var(--bg-primary) 60%, transparent) 70%, var(--bg-primary) 100%);
 }

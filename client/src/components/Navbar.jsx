@@ -1,16 +1,18 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Menu } from 'lucide-react';
+import { ShoppingBag, Menu, Sun, Moon } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
+import { useTheme } from '../context/ThemeContext';
 import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { cartCount } = useContext(CartContext);
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full h-[64px] bg-bg-primary/95 backdrop-blur-[8px] z-50 flex items-center justify-between px-5">
+            <nav className="fixed top-0 left-0 w-full h-[64px] backdrop-blur-[8px] z-50 flex items-center justify-between px-5" style={{ backgroundColor: 'var(--navbar-bg)' }}>
                 <div className="flex flex-col">
                     <Link to="/" className="font-display font-bold text-[22px] text-dark tracking-[0.25em] leading-none">NOVA</Link>
                     <span className="font-body text-[9px] text-gold tracking-[0.4em] block -mt-[2px]">DESIGN</span>
@@ -26,7 +28,15 @@ export default function Navbar() {
                     <Link to="/contact">Contact</Link>
                 </div>
 
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-3">
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        className="w-9 h-9 rounded-full flex items-center justify-center border border-gold/30 text-gold hover:bg-gold/10 transition-colors"
+                        title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
+                    >
+                        {theme === 'light' ? <Moon size={18} strokeWidth={1.5} /> : <Sun size={18} strokeWidth={1.5} />}
+                    </button>
                     <Link to="/panier" className="relative">
                         <ShoppingBag size={20} className="text-dark" strokeWidth={1.5} />
                         {cartCount > 0 && (
