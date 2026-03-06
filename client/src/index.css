@@ -296,6 +296,25 @@ img:not([src]) {
 }
 
 /* ═══════════════════════════════════════════════
+   ABOUT PAGE — VIDEO HERO
+   ═══════════════════════════════════════════════ */
+@keyframes scrollBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.about-scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════
    SMOOTH SCROLL
    ═══════════════════════════════════════════════ */
 html {

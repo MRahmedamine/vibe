@@ -11,18 +11,86 @@ export default function APropos() {
     return (
         <div className="w-full overflow-hidden">
 
-            {/* SECTION 1 — HERO */}
-            <section className="relative w-full h-[300px] flex items-end pt-[64px]">
-                <img
-                    src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=1600&q=85"
-                    alt="À propos — NOVA DESIGN"
+            {/* SECTION 1 — HERO VIDÉO CINÉMATIQUE */}
+            <section className="relative w-full h-[85vh] min-h-[500px] flex items-center overflow-hidden">
+                {/* Video Background */}
+                <video
                     className="absolute inset-0 w-full h-full object-cover"
-                    loading="eager"
+                    src="/videos/Marble_Coffee_Table_Craftsman.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    style={{ objectPosition: 'center center' }}
                 />
-                <div className="absolute inset-0 bg-black/70"></div>
-                <div className="relative z-10 px-6 xl:px-20 pb-10 max-w-7xl mx-auto w-full">
-                    <h1 className="font-display text-[42px] font-[600] text-white leading-none mb-2">{t('apropos.hero.title')}</h1>
-                    <p className="font-body text-[14px] font-[400] text-white/90">{t('apropos.hero.subtitle')}</p>
+                {/* Cinematic Overlay */}
+                <div className="absolute inset-0" style={{
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0.4) 100%)'
+                }} />
+                {/* Vignette */}
+                <div className="absolute inset-0" style={{
+                    background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%)'
+                }} />
+
+                {/* Typography Overlays */}
+                <div className="relative z-10 w-full h-full flex flex-col justify-center" style={{ padding: '0 50px' }}>
+                    {/* Label Primaire — NOTRE HISTOIRE */}
+                    <span
+                        className="hero-entrance block"
+                        style={{
+                            '--hero-delay': '0.4s',
+                            color: '#d4af37',
+                            fontSize: '11px',
+                            fontFamily: "'Tenor Sans', sans-serif",
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            marginBottom: '16px',
+                            fontWeight: 500
+                        }}
+                    >
+                        NOTRE HISTOIRE
+                    </span>
+
+                    {/* Titre Principal — À propos */}
+                    <h1
+                        className="hero-entrance"
+                        style={{
+                            '--hero-delay': '0.7s',
+                            fontFamily: "'Playfair Display', serif",
+                            fontSize: '72px',
+                            fontWeight: 400,
+                            color: '#ffffff',
+                            lineHeight: 1,
+                            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                            margin: 0
+                        }}
+                    >
+                        À propos
+                    </h1>
+                </div>
+
+                {/* Scroll Indicator — Bottom Right */}
+                <div
+                    className="about-scroll-indicator absolute z-10 flex flex-col items-center"
+                    style={{
+                        right: '60px',
+                        bottom: '40px'
+                    }}
+                >
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#d4af37"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <polyline points="6 4 12 10 18 4" />
+                        <polyline points="6 12 12 18 18 12" />
+                    </svg>
                 </div>
             </section>
 
