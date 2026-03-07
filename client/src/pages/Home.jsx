@@ -100,7 +100,7 @@ export default function Home() {
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        src="/images/hero-artisan-atelier-cinematic.png"
+                        src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2600&auto=format&fit=crop"
                         fetchPriority="high"
                         decoding="sync"
                         alt="Artisan marocain polissant du marbre"
