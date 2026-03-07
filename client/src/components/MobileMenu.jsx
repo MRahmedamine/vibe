@@ -110,8 +110,8 @@ export default function MobileMenu({ isOpen, onClose }) {
                         className="absolute bottom-10 flex flex-col items-center gap-5 z-10 w-full pointer-events-none"
                     >
                         <div className="h-[40px] w-px bg-gradient-to-b from-gold/50 to-transparent"></div>
-                        <div className="text-[10px] sm:text-[11px] font-body tracking-[0.4em] text-gold/70 uppercase">
-                            Marble Vibe
+                        <div className="text-[10px] sm:text-[11px] font-body tracking-[0.4em] text-gold/70 uppercase text-center w-full px-4">
+                            Artisan du Marbre
                         </div>
                     </motion.div>
                 </motion.div>
