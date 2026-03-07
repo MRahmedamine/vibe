@@ -228,18 +228,20 @@ export const translations = {
     // ============ SUR MESURE PAGE ============
     surMesure: {
       titre: 'Sur Mesure',
-      tag: 'SUR MESURE',
+      tag: "L'EXCELLENCE SUR MESURE",
       soustitre: 'Créez votre mobilier personnalisé',
       descriptionIntro: 'Vous avez une vision spécifique pour votre espace ? Nos artisans peuvent créer des pièces uniques adaptées à vos besoins.',
       hero: {
-        title1: 'Votre Vision,',
-        title2: 'Notre Savoir-Faire',
-        desc: 'Confiez-nous la réalisation de votre projet unique...',
+        title1: 'La pierre ',
+        title2: "d'exception",
+        desc: "Chaque projet est unique. Ensemble, créons une pièce qui vous ressemble, taillée dans les plus beaux matériaux avec un savoir-faire artisanal d'exception.",
       },
+      stepsTitle: "NOTRE PROCESSUS",
+      stepsSubtitle: "De l'idée à la création",
       steps: {
-        step1: { title: 'Partagez votre projet', desc: 'Remplissez le formulaire avec vos dimensions...' },
-        step2: { title: 'Devis en 24h', desc: 'Notre équipe étudie votre demande...' },
-        step3: { title: 'Fabrication & Livraison', desc: 'Validation des plans, façonnage...' },
+        step1: { title: 'Partage de votre vision', desc: 'Contactez-nous avec vos croquis, inspirations et dimensions. Nous échangeons pour comprendre vos attentes et définir les matériaux idéaux.' },
+        step2: { title: 'Étude et devis', desc: "Notre bureau d'études analyse la faisabilité technique et vous propose un devis détaillé ainsi que des suggestions d'optimisation si nécessaire." },
+        step3: { title: 'Façonnage et livraison', desc: 'Une fois validé, nos artisans sculptent votre pièce. Nous assurons ensuite une livraison spécialisée pour garantir une installation parfaite.' },
       },
       form: {
         title: 'Demander un Devis',

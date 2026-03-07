@@ -94,6 +94,14 @@ export default function SurMesure() {
                     viewport={{ once: true, margin: "-100px" }}
                     className="w-full xl:w-5/12 px-5 mb-16 xl:mb-0 xl:pr-16"
                 >
+                    <div className="mb-12">
+                        <motion.span variants={itemVariants} className="font-body text-[10px] text-[#C8A96E] tracking-[0.3em] uppercase mb-4 block">
+                            {t('surMesure.stepsTitle')}
+                        </motion.span>
+                        <motion.h2 variants={itemVariants} className="font-display text-[32px] md:text-[40px] text-[#1a1a0e] leading-tight">
+                            {t('surMesure.stepsSubtitle')}
+                        </motion.h2>
+                    </div>
                     <div className="flex flex-col gap-10">
                         <motion.div variants={itemVariants} className="flex flex-col border-b border-[#C8A96E]/20 pb-8 group">
                             <span className="font-display text-[72px] text-[#C8A96E]/20 leading-none mb-2 transition-colors duration-500 group-hover:text-[#C8A96E]/40">01</span>
