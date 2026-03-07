@@ -64,8 +64,9 @@ export default function MobileMenu({ isOpen, onClose }) {
                     className="fixed inset-0 w-full h-[100dvh] z-[100] bg-obsidian flex flex-col items-center justify-center pointer-events-auto shadow-2xl"
                 >
                     <button
+                        type="button"
                         onClick={onClose}
-                        className="absolute top-6 right-5 p-3 text-gold hover:text-cream hover:rotate-90 hover:scale-110 transition-all duration-500 z-10 bg-black/20 rounded-full"
+                        className="absolute top-6 right-5 p-3 text-gold hover:text-cream hover:rotate-90 hover:scale-110 transition-all duration-500 z-50 bg-black/20 rounded-full cursor-pointer"
                         aria-label="Close menu"
                     >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
