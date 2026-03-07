@@ -177,8 +177,8 @@ export default function Home() {
             </section>
 
             {/* SPLIT */}
-            <section className="w-full flex flex-col md:flex-row" style={{ minHeight: '520px' }}>
-                <Link to="/catalogue?type=decoration" className="relative w-full md:w-1/2 min-h-[500px] overflow-hidden group block">
+            <section className="w-full flex flex-col md:flex-row">
+                <Link to="/catalogue?type=decoration" className="relative w-full md:w-1/2 h-[60vh] md:h-[85vh] overflow-hidden group block">
                     <motion.div
                         className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
                         style={{
@@ -200,7 +200,7 @@ export default function Home() {
                         </span>
                     </div>
                 </Link>
-                <Link to="/catalogue?type=marbre" className="relative w-full md:w-1/2 min-h-[500px] overflow-hidden group block">
+                <Link to="/catalogue?type=marbre" className="relative w-full md:w-1/2 h-[60vh] md:h-[85vh] overflow-hidden group block">
                     <img
                         src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85"
                         alt="Marbre"
