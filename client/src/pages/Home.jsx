@@ -371,7 +371,7 @@ export default function Home() {
                 className="w-full h-[350px] xl:h-[450px] overflow-hidden relative"
             >
                 <img
-                    src="/images/luxury-marble-bridge.png"
+                    src="https://images.unsplash.com/photo-1700687175205-158daefd9880?q=80&w=2600&auto=format&fit=crop"
                     alt="NOVA DESIGN Intérieur Marbre"
                     className="w-full h-full object-cover"
                     style={{ opacity: 0.9, objectPosition: 'center 70%' }}
