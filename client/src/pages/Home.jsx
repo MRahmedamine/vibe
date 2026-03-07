@@ -100,7 +100,7 @@ export default function Home() {
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        src="/images/hero-marble-luxury.png"
+                        src="/images/hero-marble-luxury.webp"
                         fetchPriority="high"
                         decoding="sync"
                         alt="Artisan marocain polissant du marbre"
