@@ -85,10 +85,11 @@ export default function Home() {
         { id: 6, src: '/images/instagram/ig-7-carrara-cube-table.jpg', alt: 'Table cube Carrare — NOVA DESIGN' },
     ];
 
-    const statsRef = useRef(null);
-    const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
-    const qCount = useCountUp(128, 2, statsInView);
-    const pCountUrl = useCountUp(99, 2, statsInView);
+    // STATS - Removed for cleaner luxury look
+    // const statsRef = useRef(null);
+    // const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
+    // const qCount = useCountUp(128, 2, statsInView);
+    // const pCountUrl = useCountUp(99, 2, statsInView);
 
     return (
         <div className="w-full overflow-hidden bg-[var(--bg-primary)]">
@@ -356,17 +357,7 @@ export default function Home() {
                         <p className="font-sans text-[14px] xl:text-[15px] font-normal leading-[1.9] mb-10 text-[#555]">
                             {t('home.about.desc')}
                         </p>
-                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3" ref={statsRef}>
-                            <div className="flex flex-col">
-                                <span className="font-sans font-bold text-2xl text-[#1a1a08]">{qCount}Q</span>
-                                <TextScramble text="Pièces/An" className="font-mono text-[9px] uppercase tracking-widest text-[#8B7355]" />
-                            </div>
-                            <span className="w-px h-8 bg-black/10 hidden sm:block mx-4" />
-                            <div className="flex flex-col">
-                                <span className="font-sans font-bold text-2xl text-[#1a1a08]">{pCountUrl}.9%</span>
-                                <TextScramble text="Satisfaction" className="font-mono text-[9px] uppercase tracking-widest text-[#8B7355]" />
-                            </div>
-                        </div>
+                        {/* Stats hidden to keep focus on minimal luxury text */}
                     </motion.div>
                 </div>
             </section>
@@ -380,10 +371,10 @@ export default function Home() {
                 className="w-full h-[350px] xl:h-[450px] overflow-hidden relative"
             >
                 <img
-                    src="/images/section-bridge.webp"
-                    alt="NOVA DESIGN Ateliers"
+                    src="https://images.unsplash.com/photo-1600607688969-a5bfcd64bd40?q=80&w=2600&auto=format&fit=crop"
+                    alt="NOVA DESIGN Intérieur Marbre"
                     className="w-full h-full object-cover"
-                    style={{ opacity: 0.9 }}
+                    style={{ opacity: 0.9, objectPosition: 'center 70%' }}
                     loading="lazy"
                     decoding="async"
                 />
