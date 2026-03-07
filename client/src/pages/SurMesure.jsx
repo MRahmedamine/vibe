@@ -241,3 +241,5 @@ export default function SurMesure() {
         </div>
     );
 }
+
+// Trigger HMR

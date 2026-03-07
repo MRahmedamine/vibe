@@ -95,7 +95,7 @@ export default function ProductDetail() {
                                     transition={{ duration: 0.5 }}
                                     src={images[activeImage]}
                                     alt={product.name}
-                                    className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                                    className="w-full h-full object-cover"
                                     loading="eager"
                                     decoding="sync"
                                 />

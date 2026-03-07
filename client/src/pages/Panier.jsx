@@ -137,7 +137,7 @@ export default function Panier() {
                                         className="flex gap-6 py-6 border-b border-[#1a1a0e]/10 group hover:bg-[#1a1a0e]/[0.01] transition-colors"
                                     >
                                         <div className="w-[100px] h-[100px] bg-[#F5F2ED] shrink-0 border border-[#1a1a0e]/5 relative overflow-hidden">
-                                            {item.image && <img src={getImageUrl(item.image) || item.image} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" width={100} height={100} />}
+                                            {item.image && <img src={getImageUrl(item.image) || item.image} alt={item.name} className="w-full h-full object-cover" loading="lazy" decoding="async" width={100} height={100} />}
                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-colors" />
                                         </div>
 
