@@ -60,7 +60,7 @@ export default function Panier() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="font-display text-[40px] text-[#1a1a0e] mb-4 relative z-10"
+                    className="font-display text-[40px] text-[var(--text-primary)] mb-4 relative z-10"
                 >
                     {t('panier.commandeRecue')}
                 </motion.h1>
@@ -68,12 +68,12 @@ export default function Panier() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="font-body text-[15px] text-[#555] mb-10 max-w-md relative z-10"
+                    className="font-body text-[15px] text-[var(--text-secondary)] mb-10 max-w-md relative z-10"
                 >
                     {t('panier.merciCommande')}
                 </motion.p>
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="relative z-10">
-                    <Link to="/catalogue" className="border-b border-[#C8A96E] hover:border-[#1a1a0e] font-body text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] hover:text-[#1a1a0e] pb-1 transition-colors">
+                    <Link to="/catalogue" className="border-b border-[#C8A96E] hover:border-[var(--text-primary)] font-body text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] hover:text-[var(--text-primary)] pb-1 transition-colors">
                         {t('panier.retourCatalogue')}
                     </Link>
                 </motion.div>
@@ -82,22 +82,37 @@ export default function Panier() {
     }
 
     return (
-        <div className="w-full min-h-screen bg-[#FBF9F6] pt-[80px] pb-[60px] px-5 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/stone-texture.webp')] opacity-[0.03] mix-blend-multiply pointer-events-none z-0"></div>
+        <div className="w-full min-h-screen bg-[var(--bg-primary)] pt-[64px] relative overflow-x-clip">
+            {/* Watermark — same as Catalogue */}
+            <div className="absolute top-[10%] left-[-5%] text-[20vw] font-display font-bold text-[var(--text-primary)] opacity-[0.04] select-none pointer-events-none whitespace-nowrap z-0">
+                PANIER
+            </div>
 
-            <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-10 xl:gap-20 relative z-10">
+            {/* Header — Catalogue style */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="pt-10 px-5 max-w-7xl mx-auto relative z-10"
+            >
+                <span className="font-body text-[10px] text-[#C8A96E] uppercase tracking-[0.3em] block mb-2">{t('panier.titre').toUpperCase()}</span>
+                <h1 className="font-display text-[36px] xl:text-[48px] font-medium text-[var(--text-primary)] leading-none mb-1">{t('panier.titre')}</h1>
+                <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: 40 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                    className="h-[1px] bg-[#C8A96E] my-4"
+                />
+                <span className="font-body text-[12px] text-[var(--text-secondary)]">
+                    {cartItems.length} {cartItems.length !== 1 ? 'articles' : 'article'}
+                </span>
+            </motion.div>
+
+            {/* Content */}
+            <div className="px-5 py-8 max-w-7xl mx-auto flex flex-col xl:flex-row gap-10 xl:gap-20 relative z-10">
 
                 {/* Cart Items List */}
                 <div className="w-full xl:w-7/12">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                        <h1 className="font-display text-[40px] text-[#1a1a0e] mb-2">{t('panier.titre')}</h1>
-                        <div className="w-12 h-[1px] bg-[#C8A96E] mb-10"></div>
-                    </motion.div>
-
                     {cartItems.length === 0 ? (
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -107,17 +122,17 @@ export default function Panier() {
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                                className="w-20 h-20 bg-white shadow-sm border border-[#1a1a0e]/5 rounded-full flex items-center justify-center mb-8"
+                                className="w-20 h-20 bg-white shadow-sm border border-[var(--text-primary)]/5 rounded-full flex items-center justify-center mb-8"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" strokeWidth="1" className="opacity-50">
                                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                 </svg>
                             </motion.div>
-                            <p className="font-body text-[16px] text-[#555] mb-8">{t('panier.panierVide')}</p>
+                            <p className="font-body text-[16px] text-[var(--text-secondary)] mb-8">{t('panier.panierVide')}</p>
                             <MagneticButton>
-                                <Link to="/catalogue" className="bg-[#1a1a0e] text-[#f5f0e8] hover:bg-black font-body text-[11px] font-medium tracking-[0.2em] uppercase h-14 px-10 inline-flex items-center transition-colors">
+                                <Link to="/catalogue" className="bg-[#C8A96E] text-white hover:bg-[#b0925c] font-body text-[11px] font-medium tracking-[0.2em] uppercase h-14 px-10 inline-flex items-center transition-colors">
                                     {t('panier.decouvrirCreations')}
-                                    <span className="ml-3 font-serif italic text-[#C8A96E] normal-case text-sm">&rarr;</span>
+                                    <span className="ml-3 font-serif italic text-white/70 normal-case text-sm">&rarr;</span>
                                 </Link>
                             </MagneticButton>
                         </motion.div>
@@ -134,17 +149,17 @@ export default function Panier() {
                                         layout
                                         key={item.product}
                                         variants={itemVariants}
-                                        className="flex gap-6 py-6 border-b border-[#1a1a0e]/10 group hover:bg-[#1a1a0e]/[0.01] transition-colors"
+                                        className="flex gap-6 py-6 border-b border-[var(--text-primary)]/10 group hover:bg-[var(--text-primary)]/[0.01] transition-colors"
                                     >
-                                        <div className="w-[100px] h-[100px] bg-[#F5F2ED] shrink-0 border border-[#1a1a0e]/5 relative overflow-hidden">
+                                        <div className="w-[100px] h-[100px] bg-[#F5F2ED] shrink-0 border border-[var(--text-primary)]/5 relative overflow-hidden">
                                             {item.image && <img src={getImageUrl(item.image) || item.image} alt={item.name} className="w-full h-full object-cover" loading="lazy" decoding="async" width={100} height={100} />}
                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-colors" />
                                         </div>
 
                                         <div className="flex flex-col flex-1 py-1">
                                             <div className="flex justify-between items-start mb-1">
-                                                <h3 className="font-display text-[20px] text-[#1a1a0e] group-hover:text-[#C8A96E] transition-colors">{item.name}</h3>
-                                                <button onClick={() => removeFromCart(item.product)} className="font-body text-[12px] text-[#555] hover:text-red-500 transition-colors p-2 -mr-2 bg-transparent hover:bg-red-50 rounded-full">✕</button>
+                                                <h3 className="font-display text-[20px] text-[var(--text-primary)] group-hover:text-[#C8A96E] transition-colors">{item.name}</h3>
+                                                <button onClick={() => removeFromCart(item.product)} className="font-body text-[12px] text-[var(--text-secondary)] hover:text-red-500 transition-colors p-2 -mr-2 bg-transparent hover:bg-red-50 rounded-full">✕</button>
                                             </div>
 
                                             <span className="font-body text-[10px] text-[#C8A96E] tracking-widest uppercase mb-3">
@@ -152,18 +167,18 @@ export default function Panier() {
                                             </span>
 
                                             {item.dimensions && (
-                                                <span className="font-body text-[12px] text-[#555] mb-2 opacity-80">
+                                                <span className="font-body text-[12px] text-[var(--text-secondary)] mb-2 opacity-80">
                                                     {t('productDetail.dimensions')}: {item.dimensions}
                                                 </span>
                                             )}
 
                                             <div className="flex justify-between items-end mt-auto">
-                                                <div className="flex items-center h-9 border border-[#1a1a0e]/20 text-[13px] font-body bg-white">
-                                                    <button onClick={() => updateQty(item.product, item.qty - 1)} className="w-9 h-full flex items-center justify-center text-[#555] hover:bg-[#1a1a0e]/5 transition-colors">-</button>
-                                                    <span className="w-10 h-full flex items-center justify-center border-x border-[#1a1a0e]/20 text-[#1a1a0e]">{item.qty}</span>
-                                                    <button onClick={() => updateQty(item.product, item.qty + 1)} className="w-9 h-full flex items-center justify-center text-[#555] hover:bg-[#1a1a0e]/5 transition-colors">+</button>
+                                                <div className="flex items-center h-9 border border-[var(--text-primary)]/20 text-[13px] font-body bg-white">
+                                                    <button onClick={() => updateQty(item.product, item.qty - 1)} className="w-9 h-full flex items-center justify-center text-[var(--text-secondary)] hover:bg-[var(--text-primary)]/5 transition-colors">-</button>
+                                                    <span className="w-10 h-full flex items-center justify-center border-x border-[var(--text-primary)]/20 text-[var(--text-primary)]">{item.qty}</span>
+                                                    <button onClick={() => updateQty(item.product, item.qty + 1)} className="w-9 h-full flex items-center justify-center text-[var(--text-secondary)] hover:bg-[var(--text-primary)]/5 transition-colors">+</button>
                                                 </div>
-                                                <span className="font-body text-[17px] font-medium text-[#1a1a0e]">
+                                                <span className="font-body text-[17px] font-medium text-[var(--text-primary)]">
                                                     {(item.price * item.qty).toLocaleString()} MAD
                                                 </span>
                                             </div>
@@ -186,48 +201,48 @@ export default function Panier() {
                             className="w-full xl:w-5/12 mt-10 xl:mt-0 relative"
                         >
                             <div className="bg-white p-8 xl:p-10 border border-[#C8A96E]/15 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] sticky top-[100px]">
-                                <h2 className="font-display text-[24px] text-[#1a1a0e] mb-8 relative after:absolute after:bottom-[-10px] after:left-0 after:w-8 after:h-[1px] after:bg-[#C8A96E]">{t('panier.confirmation')}</h2>
+                                <h2 className="font-display text-[24px] text-[var(--text-primary)] mb-8 relative after:absolute after:bottom-[-10px] after:left-0 after:w-8 after:h-[1px] after:bg-[#C8A96E]">{t('panier.confirmation')}</h2>
 
                                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         <div className="flex flex-col group">
-                                            <label className="font-body text-[10px] tracking-[0.1em] text-[#555] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.nomClient')}</label>
-                                            <input type="text" name="name" value={formData.name} onChange={handleChange} required className="h-12 bg-transparent border-b border-[#1a1a0e]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[#1a1a0e] px-1 rounded-none transition-colors" />
+                                            <label className="font-body text-[10px] tracking-[0.1em] text-[var(--text-secondary)] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.nomClient')}</label>
+                                            <input type="text" name="name" value={formData.name} onChange={handleChange} required className="h-12 bg-transparent border-b border-[var(--text-primary)]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[var(--text-primary)] px-1 rounded-none transition-colors" />
                                         </div>
                                         <div className="flex flex-col group">
-                                            <label className="font-body text-[10px] tracking-[0.1em] text-[#555] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.telephone')}</label>
-                                            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="h-12 bg-transparent border-b border-[#1a1a0e]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[#1a1a0e] px-1 rounded-none transition-colors" />
+                                            <label className="font-body text-[10px] tracking-[0.1em] text-[var(--text-secondary)] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.telephone')}</label>
+                                            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="h-12 bg-transparent border-b border-[var(--text-primary)]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[var(--text-primary)] px-1 rounded-none transition-colors" />
                                         </div>
                                     </div>
 
                                     <div className="flex flex-col group">
-                                        <label className="font-body text-[10px] tracking-[0.1em] text-[#555] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">EMAIL <span className="text-gray-400 lowercase italic tracking-normal">(optionnel)</span></label>
-                                        <input type="email" name="email" value={formData.email} onChange={handleChange} className="h-12 bg-transparent border-b border-[#1a1a0e]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[#1a1a0e] px-1 rounded-none transition-colors" />
+                                        <label className="font-body text-[10px] tracking-[0.1em] text-[var(--text-secondary)] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">EMAIL <span className="text-gray-400 lowercase italic tracking-normal">(optionnel)</span></label>
+                                        <input type="email" name="email" value={formData.email} onChange={handleChange} className="h-12 bg-transparent border-b border-[var(--text-primary)]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[var(--text-primary)] px-1 rounded-none transition-colors" />
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         <div className="flex flex-col group">
-                                            <label className="font-body text-[10px] tracking-[0.1em] text-[#555] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.ville')}</label>
-                                            <input type="text" name="city" value={formData.city} onChange={handleChange} required className="h-12 bg-transparent border-b border-[#1a1a0e]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[#1a1a0e] px-1 rounded-none transition-colors" />
+                                            <label className="font-body text-[10px] tracking-[0.1em] text-[var(--text-secondary)] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.ville')}</label>
+                                            <input type="text" name="city" value={formData.city} onChange={handleChange} required className="h-12 bg-transparent border-b border-[var(--text-primary)]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[var(--text-primary)] px-1 rounded-none transition-colors" />
                                         </div>
                                         <div className="flex flex-col group">
-                                            <label className="font-body text-[10px] tracking-[0.1em] text-[#555] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.adresse')}</label>
-                                            <input type="text" name="address" value={formData.address} onChange={handleChange} className="h-12 bg-transparent border-b border-[#1a1a0e]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[#1a1a0e] px-1 rounded-none transition-colors" />
+                                            <label className="font-body text-[10px] tracking-[0.1em] text-[var(--text-secondary)] uppercase mb-1 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.adresse')}</label>
+                                            <input type="text" name="address" value={formData.address} onChange={handleChange} className="h-12 bg-transparent border-b border-[var(--text-primary)]/15 focus:border-[#C8A96E] outline-none font-body text-[14px] text-[var(--text-primary)] px-1 rounded-none transition-colors" />
                                         </div>
                                     </div>
 
                                     <div className="flex flex-col group mt-2">
-                                        <label className="font-body text-[10px] tracking-[0.1em] text-[#555] uppercase mb-2 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.messageSpecial')}</label>
-                                        <textarea name="message" value={formData.message} onChange={handleChange} className="h-[90px] bg-[#1a1a0e]/[0.02] border border-[#1a1a0e]/10 focus:border-[#C8A96E] focus:bg-white outline-none font-body text-[14px] text-[#1a1a0e] p-3 resize-none rounded-sm transition-colors"></textarea>
+                                        <label className="font-body text-[10px] tracking-[0.1em] text-[var(--text-secondary)] uppercase mb-2 transition-colors group-focus-within:text-[#C8A96E]">{t('panier.messageSpecial')}</label>
+                                        <textarea name="message" value={formData.message} onChange={handleChange} className="h-[90px] bg-[var(--text-primary)]/[0.02] border border-[var(--text-primary)]/10 focus:border-[#C8A96E] focus:bg-white outline-none font-body text-[14px] text-[var(--text-primary)] p-3 resize-none rounded-sm transition-colors"></textarea>
                                     </div>
 
-                                    <div className="border-t border-[#1a1a0e]/10 pt-5 mt-4 flex flex-col gap-1">
-                                        <span className="font-body text-[12px] text-[#555] tracking-widest uppercase">{t('panier.totalCommande')}</span>
+                                    <div className="border-t border-[var(--text-primary)]/10 pt-5 mt-4 flex flex-col gap-1">
+                                        <span className="font-body text-[12px] text-[var(--text-secondary)] tracking-widest uppercase">{t('panier.totalCommande')}</span>
                                         <div className="flex items-end gap-2">
                                             <span className="font-display text-[28px] text-[#C8A96E] leading-none">{cartTotal.toLocaleString()}</span>
                                             <span className="font-display text-[18px] text-[#C8A96E] leading-tight pb-[2px]">MAD</span>
                                         </div>
-                                        <span className="font-body text-[11px] text-[#555]/60 italic mt-1">*{t('panier.hors_frais')}</span>
+                                        <span className="font-body text-[11px] text-[var(--text-secondary)]/60 italic mt-1">*{t('panier.hors_frais')}</span>
                                     </div>
 
                                     {status === 'error' && <p className="font-body text-[11px] text-red-600 bg-red-50 p-2 border border-red-100">{t('contact.erreurEnvoi')}</p>}

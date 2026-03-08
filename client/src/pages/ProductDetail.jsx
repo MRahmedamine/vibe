@@ -6,7 +6,7 @@ import { getProduct } from '../services/api';
 import { CartContext } from '../context/CartContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTranslation } from '../hooks/useTranslation';
-import LoadingSpinner from '../components/LoadingSpinner';
+
 import { getImageUrl } from '../utils/imageUrl';
 import MagneticButton from '../components/MagneticButton';
 
@@ -40,7 +40,15 @@ export default function ProductDetail() {
             .finally(() => setLoading(false));
     }, [slug]);
 
-    if (loading) return <div className="pt-[64px] min-h-screen bg-[var(--bg-secondary)] flex justify-center"><LoadingSpinner /></div>;
+    if (loading) return (
+        <div className="pt-[64px] min-h-screen bg-[var(--bg-secondary)] flex justify-center items-center">
+            <div className="animate-pulse flex space-x-2">
+                <div className="h-1.5 w-1.5 bg-[#C8A96E]/50 rounded-full"></div>
+                <div className="h-1.5 w-1.5 bg-[#C8A96E]/50 rounded-full" style={{ animationDelay: '0.2s' }}></div>
+                <div className="h-1.5 w-1.5 bg-[#C8A96E]/50 rounded-full" style={{ animationDelay: '0.4s' }}></div>
+            </div>
+        </div>
+    );
 
     if (error || !product) {
         <div className="pt-[64px] min-h-screen bg-[var(--bg-secondary)] flex flex-col items-center justify-center px-5">

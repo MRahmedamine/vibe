@@ -7,7 +7,6 @@ import Marquee from '../components/Marquee';
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
 import HorizontalScroll from '../components/HorizontalScroll';
-import LoadingSpinner from '../components/LoadingSpinner';
 import FAQSection from '../components/FAQSection';
 import MagneticButton from '../components/MagneticButton';
 import TextScramble from '../components/TextScramble';
@@ -236,22 +235,16 @@ export default function Home() {
             <Marquee />
 
             {/* FEATURED PRODUCTS */}
-            {loading ? (
-                <section className="bg-[var(--bg-secondary)] py-[80px] px-5 xl:px-20 min-h-[50vh] flex items-center justify-center">
-                    <LoadingSpinner />
-                </section>
-            ) : (
-                <HorizontalScroll
-                    tag={t('home.selection.tag')}
-                    title={t('home.selection.title')}
-                    seeAllLink="/catalogue"
-                    seeAllText={t('buttons.voirTout')}
-                    items={featuredProducts}
-                    renderItem={(p) => <ProductCard product={p} />}
-                    isReverse={false}
-                    bgClass="bg-[var(--bg-secondary)]"
-                />
-            )}
+            <HorizontalScroll
+                tag={t('home.selection.tag')}
+                title={t('home.selection.title')}
+                seeAllLink="/catalogue"
+                seeAllText={t('buttons.voirTout')}
+                items={featuredProducts || []}
+                renderItem={(p) => <ProductCard product={p} />}
+                isReverse={false}
+                bgClass="bg-[var(--bg-secondary)]"
+            />
 
             {/* CATEGORIES */}
             <section className="bg-[var(--bg-primary)] py-[80px] px-5 xl:px-20">
@@ -269,32 +262,28 @@ export default function Home() {
                         <div className="gold-separator mb-10" />
                     </motion.div>
 
-                    {loading ? (
-                        <LoadingSpinner />
-                    ) : (
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px 0px' }}
-                            variants={{
-                                hidden: {},
-                                visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } }
-                            }}
-                            className="grid grid-cols-2 xl:grid-cols-3 gap-3"
-                        >
-                            {categories.map((c) => (
-                                <motion.div
-                                    key={c._id}
-                                    variants={{
-                                        hidden: { opacity: 0, y: 40 },
-                                        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
-                                    }}
-                                >
-                                    <CategoryCard category={c} />
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    )}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-80px 0px' }}
+                        variants={{
+                            hidden: {},
+                            visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } }
+                        }}
+                        className="grid grid-cols-2 xl:grid-cols-3 gap-3"
+                    >
+                        {categories.map((c) => (
+                            <motion.div
+                                key={c._id}
+                                variants={{
+                                    hidden: { opacity: 0, y: 40 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
+                                }}
+                            >
+                                <CategoryCard category={c} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 

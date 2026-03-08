@@ -5,7 +5,7 @@ import { getProducts, getCategories } from '../services/api';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTranslation } from '../hooks/useTranslation';
 import ProductCard from '../components/ProductCard';
-import LoadingSpinner from '../components/LoadingSpinner';
+
 
 export default function Catalogue() {
     useScrollReveal();
@@ -164,36 +164,48 @@ export default function Catalogue() {
 
             {/* Product Grid */}
             <div className="px-5 py-8 max-w-7xl mx-auto min-h-[50vh] relative z-10">
-                {loading ? (
-                    <LoadingSpinner />
-                ) : (
-                    <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6">
-                        <AnimatePresence>
-                            {products.length === 0 && (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    className="col-span-full text-center py-20 text-[var(--text-secondary)] font-body text-[14px]"
-                                >
-                                    {t('catalogue.noProducts')}
-                                </motion.div>
-                            )}
-                            {products.map(product => (
+                <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6">
+                    <AnimatePresence mode="popLayout">
+                        {loading ? (
+                            <motion.div 
+                                key="loader"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="col-span-full py-20 flex justify-center items-center"
+                            >
+                                <div className="animate-pulse flex space-x-2">
+                                    <div className="h-1.5 w-1.5 bg-[#C8A96E]/50 rounded-full"></div>
+                                    <div className="h-1.5 w-1.5 bg-[#C8A96E]/50 rounded-full" style={{ animationDelay: '0.2s' }}></div>
+                                    <div className="h-1.5 w-1.5 bg-[#C8A96E]/50 rounded-full" style={{ animationDelay: '0.4s' }}></div>
+                                </div>
+                            </motion.div>
+                        ) : products.length === 0 ? (
+                            <motion.div
+                                key="empty"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="col-span-full text-center py-20 text-[var(--text-secondary)] font-body text-[14px]"
+                            >
+                                {t('catalogue.noProducts')}
+                            </motion.div>
+                        ) : (
+                            products.map(product => (
                                 <motion.div
                                     key={product._id}
                                     layout
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.4, type: "spring", stiffness: 200, damping: 25 }}
+                                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                 >
                                     <ProductCard product={product} />
                                 </motion.div>
-                            ))}
-                        </AnimatePresence>
-                    </motion.div>
-                )}
+                            ))
+                        )}
+                    </AnimatePresence>
+                </motion.div>
             </div>
         </div>
     );
