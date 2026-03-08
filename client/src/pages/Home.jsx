@@ -6,6 +6,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import Marquee from '../components/Marquee';
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
+import HorizontalScroll from '../components/HorizontalScroll';
 import LoadingSpinner from '../components/LoadingSpinner';
 import FAQSection from '../components/FAQSection';
 import MagneticButton from '../components/MagneticButton';
@@ -59,21 +60,30 @@ export default function Home() {
     const yHero = useTransform(scrollY, [0, 1000], [0, 400]);
 
     useEffect(() => {
-        getProducts({ featured: true })
-            .then(res => {
-                const data = res.data;
-                setFeaturedProducts(Array.isArray(data) ? data : data.products || []);
-            })
-            .catch(() => { })
-            .finally(() => setLoading(false));
+        // Fake data for testing horizontal scrolling
+        const fakeProducts = [
+            { _id: 'prod_1', name: 'Calacatta Dining Table', slug: 'calacatta-dining', price: 4500, material: 'Marble', images: ['https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_2', name: 'Nero Marquina Console', slug: 'nero-marquina-console', price: 2800, material: 'Marble', images: ['https://images.unsplash.com/photo-1618220179428-22790b46a0eb?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_3', name: 'Travertine Coffee Table', slug: 'travertine-coffee', price: 1800, material: 'Travertine', images: ['https://images.unsplash.com/photo-1599619351208-3e6c839d6828?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_4', name: 'Arabescato Side Table', slug: 'arabescato-side', price: 1200, material: 'Marble', images: ['https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_5', name: 'Verde Guatemala Pedestal', slug: 'verde-pedestal', price: 2200, material: 'Marble', images: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_6', name: 'Carrara Vanity', slug: 'carrara-vanity', price: 3500, material: 'Marble', images: ['https://images.unsplash.com/photo-1604578762246-4f7db285642f?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_7', name: 'Onyx Desk', slug: 'onyx-desk', price: 5500, material: 'Onyx', images: ['https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=800&q=80'] },
+            { _id: 'prod_8', name: 'Portoro Lounge Table', slug: 'portoro-lounge', price: 4200, material: 'Marble', images: ['https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=800&q=80'] },
+        ];
+        
+        const fakeCategories = [
+            { _id: 'cat_1', name: 'Tables', slug: 'tables', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=85' },
+            { _id: 'cat_2', name: 'Consoles', slug: 'consoles', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=85' },
+            { _id: 'cat_3', name: 'Vasques', slug: 'vasques', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=85' },
+            { _id: 'cat_4', name: 'Accessoires', slug: 'accessoires', image: 'https://images.unsplash.com/photo-1594913371583-95c8e8bfef5b?w=800&q=85' },
+            { _id: 'cat_5', name: 'Sur Mesure', slug: 'sur-mesure', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85' },
+            { _id: 'cat_6', name: 'Salons', slug: 'salons', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=85' },
+        ];
 
-        getCategories()
-            .then(res => {
-                const data = res.data;
-                const list = Array.isArray(data) ? data : (data.categories || data.data || []);
-                setCategories(list.slice(0, 3));
-            })
-            .catch(() => { });
+        setFeaturedProducts(fakeProducts);
+        setCategories(fakeCategories.slice(0, 3));
+        setLoading(false);
     }, []);
 
     const instagramPosts = [
@@ -92,7 +102,7 @@ export default function Home() {
     // const pCountUrl = useCountUp(99, 2, statsInView);
 
     return (
-        <div className="w-full overflow-hidden bg-[var(--bg-primary)]">
+        <div className="w-full overflow-x-clip bg-[var(--bg-primary)]">
             {/* HERO */}
             <section className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden">
                 <motion.div style={{ y: yHero }} className="absolute inset-0 z-0">
@@ -226,49 +236,22 @@ export default function Home() {
             <Marquee />
 
             {/* FEATURED PRODUCTS */}
-            <section className="bg-[var(--bg-secondary)] py-[80px] px-5 xl:px-20">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                        <span className="font-body text-[10px] uppercase tracking-[0.2em] block mb-3 text-[#C8A96E]">
-                            {t('home.selection.tag')}
-                        </span>
-                        <div className="flex justify-between items-end mb-3">
-                            <h2 className="font-display text-[36px] xl:text-[42px] text-[var(--text-primary)] leading-none">{t('home.selection.title')}</h2>
-                            <Link to="/catalogue" className="font-body text-[11px] tracking-[0.1em] mb-1 text-[#C8A96E] hover:opacity-70 transition-opacity">
-                                {t('buttons.voirTout')}
-                            </Link>
-                        </div>
-                        <div className="gold-separator mb-10" />
-                    </motion.div>
-
-                    {loading ? (
-                        <LoadingSpinner />
-                    ) : (
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: '-80px 0px' }}
-                            variants={{
-                                hidden: {},
-                                visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } }
-                            }}
-                            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
-                        >
-                            {featuredProducts.map((p) => (
-                                <motion.div
-                                    key={p._id}
-                                    variants={{
-                                        hidden: { opacity: 0, y: 40 },
-                                        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
-                                    }}
-                                >
-                                    <ProductCard product={p} />
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    )}
-                </div>
-            </section>
+            {loading ? (
+                <section className="bg-[var(--bg-secondary)] py-[80px] px-5 xl:px-20 min-h-[50vh] flex items-center justify-center">
+                    <LoadingSpinner />
+                </section>
+            ) : (
+                <HorizontalScroll
+                    tag={t('home.selection.tag')}
+                    title={t('home.selection.title')}
+                    seeAllLink="/catalogue"
+                    seeAllText={t('buttons.voirTout')}
+                    items={featuredProducts}
+                    renderItem={(p) => <ProductCard product={p} />}
+                    isReverse={false}
+                    bgClass="bg-[var(--bg-secondary)]"
+                />
+            )}
 
             {/* CATEGORIES */}
             <section className="bg-[var(--bg-primary)] py-[80px] px-5 xl:px-20">

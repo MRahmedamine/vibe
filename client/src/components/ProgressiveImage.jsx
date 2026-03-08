@@ -1,12 +1,20 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function ProgressiveImage({ src, alt, className, blurColor = '#E8E3D8', style }) {
     const [imageLoaded, setImageLoaded] = useState(false);
+    const imgRef = useRef(null);
+
+    useEffect(() => {
+        if (imgRef.current && imgRef.current.complete) {
+            setImageLoaded(true);
+        }
+    }, [src]);
 
     return (
         <div className={`relative overflow-hidden ${className}`} style={{ ...style, backgroundColor: blurColor }}>
             <motion.img
+                ref={imgRef}
                 initial={{ opacity: 0, filter: 'blur(20px)' }}
                 animate={{
                     opacity: imageLoaded ? 1 : 0,

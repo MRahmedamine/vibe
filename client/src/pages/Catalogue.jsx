@@ -79,7 +79,7 @@ export default function Catalogue() {
     };
 
     return (
-        <div className="w-full min-h-screen bg-[var(--bg-primary)] pt-[64px] relative overflow-hidden">
+        <div className="w-full min-h-screen bg-[var(--bg-primary)] pt-[64px] relative overflow-x-clip">
             {/* Watermark */}
             <div className="absolute top-[10%] left-[-5%] text-[20vw] font-display font-bold text-[#F5F2ED] opacity-30 select-none pointer-events-none whitespace-nowrap z-0">
                 COLLECTION

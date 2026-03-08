@@ -23,6 +23,7 @@ import AdminOrders from './pages/admin/AdminOrders';
 import AdminDevis from './pages/admin/AdminDevis';
 import ProtectedRoute from './components/ProtectedRoute';
 import PageTransition from './components/PageTransition';
+import SmoothScroll from './components/SmoothScroll';
 
 function PublicLayout() {
   return (
@@ -69,11 +70,13 @@ export default function App() {
     <LanguageProvider>
       <AdminProvider>
         <CartProvider>
-          <BrowserRouter>
-            <ThemeProvider>
-              <AnimatedRoutes />
-            </ThemeProvider>
-          </BrowserRouter>
+          <SmoothScroll>
+            <BrowserRouter>
+              <ThemeProvider>
+                <AnimatedRoutes />
+              </ThemeProvider>
+            </BrowserRouter>
+          </SmoothScroll>
         </CartProvider>
       </AdminProvider>
     </LanguageProvider>
