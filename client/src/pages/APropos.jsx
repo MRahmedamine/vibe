@@ -16,7 +16,7 @@ export default function APropos() {
                 {/* Image Background */}
                 <img
                     className="absolute inset-0 w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80"
+                    src="/images/about/hero.png"
                     alt="Marbre de luxe"
                     style={{ objectPosition: 'center center' }}
                 />
@@ -97,10 +97,10 @@ export default function APropos() {
                     {/* LEFT — Photo Grid */}
                     <div className="w-full xl:w-1/2" data-reveal>
                         <div className="grid grid-cols-2 gap-3">
-                            <img src="https://images.unsplash.com/photo-1585128792020-803d29415281?auto=format&fit=crop&w=800&q=80" alt="Artisan sculptant du marbre" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Détail de pierre brute" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
+                            <img src="/images/about/artisan.png" alt="Artisan sculptant du marbre" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
+                            <img src="/images/about/grey-marble.png" alt="Détail de pierre brute" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
                         </div>
-                        <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1200&q=80" alt="Intérieur marbre luxueux" className="w-full h-[260px] object-cover rounded-lg mt-3" loading="lazy" />
+                        <img src="/images/about/interior.png" alt="Intérieur marbre luxueux" className="w-full h-[260px] object-cover rounded-lg mt-3" loading="lazy" />
                     </div>
 
                     {/* RIGHT — Text */}
@@ -159,7 +159,7 @@ export default function APropos() {
                     {/* Portrait */}
                     <div className="w-[160px] h-[160px] rounded-full mx-auto mb-6 p-[3px] bg-gradient-to-br from-gold to-gold/60">
                         <img
-                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+                            src="/images/about/founder.png"
                             alt={t('apropos.team.name')}
                             className="w-full h-full rounded-full object-cover"
                             loading="lazy"
