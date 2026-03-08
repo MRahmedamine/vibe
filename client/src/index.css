@@ -18,7 +18,7 @@
 
   --font-display: 'Bodoni Moda', serif;
   --font-heading: 'Prata', serif;
-  --font-serif: 'Amiri', serif;
+  --font-serif: ' Amiri', serif;
   --font-body: 'Tenor Sans', sans-serif;
   --font-sans: 'DM Sans', sans-serif;
 
@@ -252,29 +252,30 @@ img:not([src]) {
   opacity: 1;
 }
 
-/* Primary CTA — dark fill */
+/* Primary CTA — dark fill with better contrast */
 .btn-luxury-primary {
-  background: #1a1a0e;
-  color: #f5f0e8;
-  border: 1px solid transparent;
+  background: var(--color-obsidian);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
 }
 
 .btn-luxury-primary:hover {
-  background: #C8A96E;
-  color: #1a1a0e;
-  box-shadow: 0 8px 32px rgba(200, 169, 110, 0.25);
+  background: var(--color-gold);
+  color: var(--color-obsidian);
+  box-shadow: 0 8px 32px rgba(200, 169, 110, 0.4);
 }
 
-/* Secondary CTA — gold border */
+/* Secondary CTA — gold border with improved definition */
 .btn-luxury-secondary {
-  background: transparent;
-  color: #C8A96E;
-  border: 1px solid #C8A96E;
+  background: rgba(10, 10, 10, 0.4);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  backdrop-filter: blur(8px);
 }
 
 .btn-luxury-secondary:hover {
-  background: rgba(200, 169, 110, 0.1);
-  box-shadow: 0 8px 32px rgba(200, 169, 110, 0.15);
+  background: rgba(200, 169, 110, 0.15);
+  box-shadow: 0 8px 32px rgba(200, 169, 110, 0.25);
 }
 
 /* ═══════════════════════════════════════════════

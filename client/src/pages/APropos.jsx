@@ -16,7 +16,7 @@ export default function APropos() {
                 {/* Image Background */}
                 <img
                     className="absolute inset-0 w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80"
+                    src="/images/about/hero.png"
                     alt="Marbre de luxe"
                     style={{ objectPosition: 'center center' }}
                 />
@@ -97,10 +97,10 @@ export default function APropos() {
                     {/* LEFT — Photo Grid */}
                     <div className="w-full xl:w-1/2" data-reveal>
                         <div className="grid grid-cols-2 gap-3">
-                            <img src="https://images.unsplash.com/photo-1772211506040-22f7e0bfbbee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8cmF3JTIwbWFyYmxlJTIwc3RvbmV8ZW58MHx8fHwxNzcyOTIwMDM4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Surface de marbre blanc" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
-                            <img src="https://images.unsplash.com/photo-1653047559393-f1ea9e8e1422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8bWFyYmxlJTIwcXVhcnJ5fGVufDB8fHx8MTc3MjkyMDAzOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Détail de pierre brute" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
+                            <img src="/images/about/artisan.png" alt="Détail de marbre naturel" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
+                            <img src="/images/about/grey-marble.png" alt="Détail de pierre brute" className="w-full aspect-square object-cover rounded-lg" loading="lazy" />
                         </div>
-                        <img src="https://plus.unsplash.com/premium_photo-1682146840607-6cb46c57c0f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MXx8bWFyYmxlJTIwcXVhcnJ5fGVufDB8fHx8MTc3MjkyMDAzOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Extraction de blocs de marbre" className="w-full h-[260px] object-cover rounded-lg mt-3" loading="lazy" />
+                        <img src="/images/about/interior.png" alt="Texture de marbre luxueuse" className="w-full h-[260px] object-cover rounded-lg mt-3" loading="lazy" />
                     </div>
 
                     {/* RIGHT — Text */}
@@ -159,7 +159,7 @@ export default function APropos() {
                     {/* Portrait */}
                     <div className="w-[160px] h-[160px] rounded-full mx-auto mb-6 p-[3px] bg-gradient-to-br from-gold to-gold/60">
                         <img
-                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=85"
+                            src="/images/about/founder.png"
                             alt={t('apropos.team.name')}
                             className="w-full h-full rounded-full object-cover"
                             loading="lazy"

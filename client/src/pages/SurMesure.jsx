@@ -50,7 +50,7 @@ export default function SurMesure() {
         <div className="w-full bg-[#111111] pt-[64px] min-h-screen">
             {/* Hero (Pierre d'Exception) */}
             <section className="bg-obsidian min-h-[40vh] flex flex-col items-center justify-center p-6 xl:p-20 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/stone-texture.webp')] opacity-5 mix-blend-overlay pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517524008470-344c8035ed88?auto=format&fit=crop&q=85')] opacity-5 mix-blend-overlay pointer-events-none"></div>
                 <motion.span
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}

@@ -1,5 +1,6 @@
 import TiltCard from './TiltCard';
 import ProgressiveImage from './ProgressiveImage';
+import { Link } from 'react-router-dom';
 
 export default function CategoryCard({ category }) {
     const defaultImages = {

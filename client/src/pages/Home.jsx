@@ -100,7 +100,7 @@ export default function Home() {
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        src="/images/hero-marble-luxury.webp"
+                        src="/images/hero-luxury-vibes.avif"
                         fetchPriority="high"
                         decoding="sync"
                         alt="Artisan marocain polissant du marbre"
@@ -152,12 +152,12 @@ export default function Home() {
                         className="flex flex-col sm:flex-row items-center gap-4"
                     >
                         <MagneticButton>
-                            <Link to="/catalogue" className="btn-luxury btn-luxury-primary font-body text-[11px] font-medium tracking-[0.2em] uppercase h-12 px-8 flex items-center justify-center min-w-[200px] bg-white text-black hover:bg-[#C8A96E]">
+                            <Link to="/catalogue" className="btn-luxury btn-luxury-primary font-body text-[11px] font-medium tracking-[0.2em] uppercase h-12 px-8 flex items-center justify-center min-w-[200px]">
                                 {t('buttons.voirCollection')}
                             </Link>
                         </MagneticButton>
                         <MagneticButton>
-                            <Link to="/sur-mesure" className="btn-luxury btn-luxury-secondary font-body text-[11px] font-medium tracking-[0.2em] uppercase h-12 px-7 flex items-center justify-center min-w-[200px] border border-white/30 text-white hover:bg-white/10">
+                            <Link to="/sur-mesure" className="btn-luxury btn-luxury-secondary font-body text-[11px] font-medium tracking-[0.2em] uppercase h-12 px-7 flex items-center justify-center min-w-[200px]">
                                 {t('buttons.surMesure')}
                             </Link>
                         </MagneticButton>
@@ -180,13 +180,12 @@ export default function Home() {
             {/* SPLIT */}
             <section className="w-full flex flex-col md:flex-row">
                 <Link to="/catalogue?type=decoration" className="relative w-full md:w-1/2 h-[60vh] md:h-[85vh] overflow-hidden group block">
-                    <motion.div
-                        className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
-                        style={{
-                            backgroundImage: 'url(https://images.unsplash.com/photo-1616048056617-93b94a339009?w=1200&q=85)',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                        }}
+                    <img
+                        src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=85"
+                        alt="Décoration en marbre"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.25) 100%)' }} />
                     <div className="absolute bottom-0 left-0 right-0 p-8 xl:p-12 flex flex-col items-start z-10">
@@ -203,8 +202,8 @@ export default function Home() {
                 </Link>
                 <Link to="/catalogue?type=marbre" className="relative w-full md:w-1/2 h-[60vh] md:h-[85vh] overflow-hidden group block">
                     <img
-                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85"
-                        alt="Marbre"
+                        src="https://images.unsplash.com/photo-1634712282287-14ed57b9cc89?auto=format&fit=crop&q=85"
+                        alt="Plaques de Marbre d'exception"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
@@ -317,8 +316,11 @@ export default function Home() {
             </section>
 
             {/* ABOUT */}
-            <section style={{ background: '#F5F2ED' }} className="py-[80px] xl:py-[100px] px-5 xl:px-20 overflow-hidden grain-overlay">
-                <div className="max-w-7xl mx-auto flex flex-col xl:flex-row gap-10 xl:gap-20 items-center">
+            <section className="bg-obsidian py-20 xl:py-32 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+                
+                <div className="max-w-7xl mx-auto px-6 xl:px-20">
+                    <div className="flex flex-col xl:flex-row gap-16 xl:gap-24 items-center">
                     <motion.div
                         initial={{ x: -50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -329,7 +331,7 @@ export default function Home() {
                     >
                         <img
                             src="/images/about-artisan-marble.png"
-                            alt="Artisan marocain"
+                            alt="Atelier de marbrerie luxueux"
                             className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.03]"
                             style={{ position: 'absolute', inset: 0 }}
                             loading="lazy"
@@ -337,30 +339,40 @@ export default function Home() {
                         />
                     </motion.div>
 
-                    <motion.div
-                        initial={{ x: 50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true, margin: '-100px' }}
-                        transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-full xl:w-[45%] xl:pt-8"
-                    >
-                        <span className="font-body text-[10px] uppercase tracking-[0.2em] block mb-5 text-[#C8A96E]">
-                            {t('home.about.tag')}
-                        </span>
-                        <div className="gold-separator mb-7" />
-                        <h2 className="font-display text-[38px] xl:text-[48px] leading-[1.05] mb-1 text-[#1a1a0e]">
-                            {t('home.about.title1')}
-                        </h2>
-                        <h2 className="font-display italic font-medium text-[36px] xl:text-[44px] leading-[1.05] mb-8 text-[#C8A96E]">
-                            {t('home.about.title2')}
-                        </h2>
-                        <p className="font-sans text-[14px] xl:text-[15px] font-normal leading-[1.9] mb-10 text-[#555]">
-                            {t('home.about.desc')}
-                        </p>
-                        {/* Stats hidden to keep focus on minimal luxury text */}
-                    </motion.div>
+                    <div className="flex-1 space-y-8">
+                        <div className="space-y-4">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-4xl xl:text-6xl font-['Playfair_Display'] text-white leading-tight uppercase tracking-tight">
+                                    <span className="text-[10px] tracking-[0.4em] text-[#C8A96E] block mb-4 font-body">NOTRE HISTOIRE</span>
+                                    L'Art du Marbre, <br />
+                                    <span className="text-secondary italic">Depuis 1995</span>
+                                </h2>
+                            </motion.div>
+
+                            <p className="text-gray-400 text-[15px] leading-[1.8] font-light max-w-lg mb-8" style={{ fontFamily: 'var(--font-body)' }}>
+                                Né au cœur des montagnes marocaines, notre atelier perpétue un savoir-faire d'exception transmis de génération en génération. Chaque pièce que nous créons est un hommage à la beauté brute de la pierre et à l'excellence de l'artisanat.
+                            </p>
+
+                            <div className="pt-4">
+                                <MagneticButton>
+                                    <Link
+                                        to="/a-propos"
+                                        className="btn-luxury font-body text-[11px] font-medium tracking-[0.2em] uppercase h-12 px-8 inline-flex items-center justify-center border border-[#C8A96E] text-[#C8A96E] hover:bg-[#C8A96E] hover:text-[#0a0a0a] transition-all duration-300"
+                                        style={{ minWidth: '240px' }}
+                                    >
+                                        EXPLORER NOTRE HÉRITAGE
+                                    </Link>
+                                </MagneticButton>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
             {/* VISUAL BRIDGE */}
             <motion.section
@@ -371,10 +383,10 @@ export default function Home() {
                 className="w-full h-[350px] xl:h-[450px] overflow-hidden relative"
             >
                 <img
-                    src="https://images.unsplash.com/photo-1700687175205-158daefd9880?q=80&w=2600&auto=format&fit=crop"
-                    alt="NOVA DESIGN Intérieur Marbre"
+                    src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=85"
+                    alt="Intérieur luxueux en marbre"
                     className="w-full h-full object-cover"
-                    style={{ opacity: 0.9, objectPosition: 'center 70%' }}
+                    style={{ opacity: 0.9, objectPosition: 'center center' }}
                     loading="lazy"
                     decoding="async"
                 />
